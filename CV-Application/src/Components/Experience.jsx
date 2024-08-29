@@ -1,4 +1,5 @@
-import "./Experience.css";
+import { useState } from "react";
+import "../Styles/Experience.css";
 
 function Experience() {
   return (
@@ -6,10 +7,12 @@ function Experience() {
       <h1>Experience</h1>
       <input type="text" placeholder="Enter Your Company Name" />
       <input type="text" placeholder="Enter Your Position" />
-      <div>From</div>
-      <input type="date" />
-      <div>To</div>
-      <input type="date" />
+      <div className="date-container">
+        <div>From</div>
+        <input type="date" />
+        <div>To</div>
+        <input type="date" />
+      </div>
     </div>
   );
 }

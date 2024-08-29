@@ -1,15 +1,59 @@
 import { useState } from "react";
-import "./Personal.css";
+import "../Styles/Personal.css";
 
-function Personal() {
+function Personal({ personalData, setPersonalData }) {
+  const handlePersonalData = (e) => {
+    const { name, value } = e.target;
+    setPersonalData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   return (
-    <div>
-      <h1>Resume</h1>
-      <input type="text" placeholder="Enter Your First Name" />
-      <input type="text" placeholder="Enter Your Last Name" />
-      <input type="email" placeholder="example@example.com" />
-      <input type="text" placeholder="ex: (123)-456-7890" />
-    </div>
+    <form>
+      <h1>Personal Information</h1>
+      <label htmlFor="firstName">First Name</label>
+      <input
+        type="text"
+        placeholder="John"
+        name="firstName"
+        value={personalData.firstName}
+        onChange={handlePersonalData}
+      />
+      <label htmlFor="lastName">Last Name</label>
+      <input
+        type="text"
+        placeholder="Doe"
+        name="lastName"
+        value={personalData.lastName}
+        onChange={handlePersonalData}
+      />
+      <label htmlFor="phoneNum">Phone Number</label>
+      <input
+        type="text"
+        placeholder="1234567890"
+        name="phoneNum"
+        value={personalData.phoneNum}
+        onChange={handlePersonalData}
+      />
+      <label htmlFor="email">email</label>
+      <input
+        type="text"
+        placeholder="JohnDoe@email.com"
+        name="email"
+        value={personalData.email}
+        onChange={handlePersonalData}
+      />
+      <label htmlFor="location">Location</label>
+      <input
+        type="text"
+        placeholder="Dallas, Texas"
+        name="location"
+        value={personalData.location}
+        onChange={handlePersonalData}
+      />
+    </form>
   );
 }
 
